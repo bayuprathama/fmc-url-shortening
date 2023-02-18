@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --cyan: 180 66% 49%;
+  --dark-violet: 257 27% 26%;
+  --red: 0 87% 67%;
+  --neutral-gray: 0 0% 75%;
+  --grayish-violet: 257 7% 63%;
+  --very-dark-blue: 255 11% 22%;
+  --very-dark-violet: 260 8% 14%;
+
+  --body-copy: 1.125rem;
+}
