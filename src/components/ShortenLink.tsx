@@ -7,22 +7,28 @@ function ShortenLink({ url }: { url: ShortenURL }) {
     setIsCopied((prev) => !prev)
     navigator.clipboard.writeText(shortenURLRef.current?.dataset.copy as string)
   }
-  const shortenURLRef = useRef<HTMLParagraphElement>(null)
+  const shortenURLRef = useRef<HTMLAnchorElement>(null)
   return (
     <div className="bg-white flex lg:items-center flex-col lg:flex-row lg:justify-between rounded-md lg:py-4 lg:px-6">
       <div className="flex lg:justify-between lg:flex-1 border-b lg:border-none py-3 px-4 lg:py-0 lg:px-0">
-        <p className="lg:text-xl text-ellipsis overflow-hidden truncate max-w-[500px]">
+        <a
+          target="_blank"
+          href={url.originalURL}
+          className="lg:text-xl text-ellipsis overflow-hidden truncate max-w-[500px]"
+        >
           {url.originalURL}
-        </p>
+        </a>
       </div>
       <div className="px-4 pb-4 lg:px-0 lg:pb-0 flex flex-col lg:flex-row lg:gap-6 lg:items-center">
-        <p
+        <a
           className="text-cyan lg:text-xl py-3"
           ref={shortenURLRef}
           data-copy={url.shortenURL}
+          href={url.shortenURL}
+          target="_blank"
         >
           {url.shortenURL}
-        </p>
+        </a>
         <button
           onClick={handleCopyClick}
           className={clsx(

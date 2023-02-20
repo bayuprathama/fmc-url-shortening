@@ -10,11 +10,13 @@ type LinkShorteningBarProps = {
   setUrlValue: Dispatch<SetStateAction<string | null>>
   urlValue: string | null
   getShortenURL: Function
+  isLoading: boolean
 }
 function LinkShorteningBar({
   setUrlValue,
   urlValue,
   getShortenURL,
+  isLoading,
 }: LinkShorteningBarProps) {
   const [isEmpty, setIsEmpty] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
@@ -60,9 +62,12 @@ function LinkShorteningBar({
         </div>
         <button
           onClick={(e) => handleShortenClick(e)}
-          className="p-4 bg-cyan text-gray-50 rounded-md font-bold lg:min-w-max lg:px-8"
+          className={clsx(
+            isLoading ? 'text-dark-violet' : '',
+            'p-4 bg-cyan text-gray-50 rounded-md font-bold lg:min-w-max lg:px-8'
+          )}
         >
-          Shorten It!
+          {isLoading ? 'Working..' : 'Shorten It!'}
         </button>
       </div>
     </div>

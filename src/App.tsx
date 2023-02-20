@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { SetStateAction, useState } from 'react'
 import Card from './components/Card'
 import Footer from './components/Footer'
 import Nav from './components/Nav'
@@ -12,13 +12,15 @@ export type ShortenURL = {
 }
 function App() {
   const [navToggle, setNavToggle] = useState(false)
-  const [isEmpty, setIsEmpty] = useState(false)
   const [urlValue, setUrlValue] = useState<string | null>('')
+  // const [url, setUrl] = useState<ShortenURL[]>([])
   const [url, setUrl] = useState<ShortenURL[]>([])
+  const [isLoading, setLoading] = useState(false)
   function handleNavClick() {
     setNavToggle((prev) => !prev)
   }
   async function getShortenURL(url: string) {
+    setLoading(true)
     const API_URL = `https://api.shrtco.de/v2/shorten?url=${url}`
     const res = await fetch(API_URL)
     const data = await res.json()
@@ -30,6 +32,7 @@ function App() {
       },
     ])
     setUrlValue('')
+    setLoading(false)
   }
   return (
     <div className="text-semixl font-poppins bg-[#f0f1f6]">
@@ -62,6 +65,7 @@ function App() {
           setUrlValue={setUrlValue}
           urlValue={urlValue}
           getShortenURL={getShortenURL}
+          isLoading={isLoading}
         />
         {url && (
           <div className="flex flex-col gap-6">
