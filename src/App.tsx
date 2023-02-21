@@ -53,7 +53,7 @@ function App() {
     <div className="text-semixl font-poppins bg-[#f0f1f6]">
       <Nav handleNavClick={handleNavClick} navToggle={navToggle} />
       {/* Hero section */}
-      <div className=" bg-white">
+      <div className="bg-white overflow-hidden">
         <div className="flex flex-col lg:flex-row mx-auto relative max-w-1110">
           <div className=" mx-auto flex flex-col items-center lg:items-start lg:flex-1 pt-20 pb-56 px-6 lg:px-0">
             <h1 className="lg:text-7xl text-[2.5rem] font-bold max-w-[600px] leading-[1.15] text-center lg:text-left mb-2 lg:leading-[1.2]">
@@ -70,7 +70,7 @@ function App() {
               Get Started
             </a>
           </div>
-          <div className="lg:absolute -order-1 lg:w-[733px] lg:order-none lg:flex-1 right-0 lg:translate-x-72 bg-illustration lg:bg-contain bg-cover bg-no-repeat h-[330px] ml-6 lg:ml-0 lg:h-[482px] overflow-x-hidden"></div>
+          <div className="lg:absolute -order-1 lg:w-[733px] lg:order-none lg:flex-1 right-0 lg:translate-x-72 bg-illustration lg:bg-contain bg-cover bg-no-repeat h-[330px] ml-6 lg:ml-0 lg:h-[482px]"></div>
         </div>
       </div>
 
