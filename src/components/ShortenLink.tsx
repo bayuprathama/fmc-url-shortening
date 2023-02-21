@@ -1,10 +1,15 @@
 import clsx from 'clsx'
-import { useRef, useState } from 'react'
+import { SetStateAction, useRef, useState } from 'react'
 import { ShortenURL } from '../App'
-function ShortenLink({ url }: { url: ShortenURL }) {
-  const [isCopied, setIsCopied] = useState(false)
+
+type ShortenLinkProps = {
+  url: ShortenURL
+  setIsActive: React.Dispatch<SetStateAction<string>>
+  isActive: boolean
+}
+function ShortenLink({ url, isActive, setIsActive }: ShortenLinkProps) {
   function handleCopyClick() {
-    setIsCopied((prev) => !prev)
+    setIsActive(url.shortenURL)
     navigator.clipboard.writeText(shortenURLRef.current?.dataset.copy as string)
   }
   const shortenURLRef = useRef<HTMLAnchorElement>(null)
@@ -32,11 +37,11 @@ function ShortenLink({ url }: { url: ShortenURL }) {
         <button
           onClick={handleCopyClick}
           className={clsx(
-            isCopied ? 'bg-dark-violet' : 'bg-cyan',
+            isActive ? 'bg-dark-violet' : 'bg-cyan',
             'py-3 px-10 font-bold transition ease-in-out duration-300 rounded-md inline-block text-center text-gray-50'
           )}
         >
-          {isCopied ? 'Copied!' : 'Copy'}
+          {isActive ? 'Copied!' : 'Copy'}
         </button>
       </div>
     </div>

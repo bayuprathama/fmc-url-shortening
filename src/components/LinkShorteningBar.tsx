@@ -48,7 +48,7 @@ function LinkShorteningBar({
             value={urlValue as string}
             type="text"
             className={clsx(
-              `rounded-md  p-4 lg:w-full ${
+              `rounded-md  p-4 w-full ${
                 isEmpty ? 'placeholder:text-red outline-red mb-6 lg:mb-0' : ''
               }`
             )}

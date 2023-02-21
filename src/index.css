@@ -13,3 +13,35 @@
 
   --body-copy: 1.125rem;
 }
+
+.line {
+  width: 8px;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  background-color: hsl(var(--cyan));
+}
+
+@media (min-width: 1024px) {
+  .line {
+    width: 100%;
+    position: absolute;
+    height: 8px;
+    top: 0;
+    bottom: 0;
+    margin-block: auto;
+    background-color: hsl(var(--cyan));
+  }
+  .benefit {
+    height: 270px;
+  }
+  .benefit:nth-child(2) {
+    margin-top: 2.5rem;
+  }
+  .benefit:nth-child(3) {
+    margin-top: 5rem;
+  }
+}
