@@ -111,7 +111,11 @@ function App() {
                     className="hover:underline text-cyan"
                     onClick={() => setViewAll((prev) => !prev)}
                   >
-                    {viewAll ? 'Show less' : 'Show all'}
+                    {reversedURLs.length > 3
+                      ? viewAll
+                        ? 'Show less'
+                        : 'Show all'
+                      : ''}
                   </button>
                   <button
                     className=" text-red  hover:underline"
